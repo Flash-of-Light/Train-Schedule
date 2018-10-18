@@ -4,27 +4,75 @@
   <meta charset="UTF-8">
   <title>Train Schedules</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">  -->
+  <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <!-- <script src="assets/javascript/app.js"></script> -->
   
 </head>
 
 <body>
+    <div container>
+    <div class="jumbotron jumbotron-fluid" id="main" style="color: green; background-color: gold;">
         <div class="container">
-                <div class="row">
-                  <div class="col-sm">
-                    One of three columns
+            <h1 class="display-4" style="font-weight: bold;">Jay's Train Scheduler</h1>
+                <p class="lead" style="font-weight: bold;">Trains, times, galore</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-1 col-md-10 offset-md-1 " style="background-color: white;">
+        <div class="card">
+            <div class="card-header" style="background-color: green;">
+                Current Train Schedule
+            </div>
+                    <div class="card-body">
+                            <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                        Train Name
+                                        </div>
+                                        <div class="col-sm">
+                                        Destination
+                                        </div>
+                                        <div class="col-sm">
+                                        Frequency (minutes)
+                                        </div>
+                                        <div class="col-sm">
+                                            Next Arrival
+                                        </div>
+                                        <div class="col-sm">
+                                                Minutes Away
+                                        </div>
+                                    </div>
+                                  </div>
+                    </div>
                   </div>
-                  <div class="col-sm">
-                    One of three columns
-                  </div>
-                  <div class="col-sm">
-                    One of three columns
-                  </div>
-                </div>
-              </div>
-
+<br>
+                  <div class="card">
+                        <div class="card-header" style="background-color: green; ">
+                            
+                          Add Train
+                        </div>
+                        
+                        <div class="card-body">
+                                <form>
+                                        <div class="form-group">
+                                          <label for="exampleInputEmail1">Train Name</label>
+                                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="The Pain Train">
+                                          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="exampleInputPassword1">Destination</label>
+                                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Your Face">
+                                        </div>
+                                       
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                      </form>
+                          
+                        </div>
+                        
+                      </div>
+                    </div>
 </body>
 </html>
