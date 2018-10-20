@@ -7,9 +7,9 @@
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
   <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
-  <!-- <script src="assets/javascript/app.js"></script> -->
+  <script src="assets/javascript/app.js"></script>
 </head>
 
 <body>
@@ -56,19 +56,19 @@
             <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1" style="font-weight: bold;">Train Name</label>
-                    <input type="train" class="form-control" id="trainName" placeholder="The Pain Train">
+                    <input type="text" class="form-control" id="trainName" placeholder="The Pain Train">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1" style="font-weight: bold;">Destination</label>
-                    <input type="password" class="form-control" id="destination" placeholder="Your Face">
+                    <input type="text" class="form-control" id="destination" placeholder="Your Face">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1" style="font-weight: bold;">First Train Time</label>
-                    <input type="password" class="form-control" id="firstTime" placeholder="3:00">
+                    <input type="text" class="form-control" id="firstTime" placeholder="3:00">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1" style="font-weight: bold;">Frequency (minutes)</label>
-                    <input type="password" class="form-control" id="frequency" placeholder="15">
+                    <input type="text" class="form-control" id="frequency" placeholder="15">
                 </div>
             
                 <button type="submit" id="submit" class="btn btn-success">Submit</button>
@@ -79,62 +79,4 @@
 <br>
     </div>
 </body>
-
-<script>
-// Steps to complete:
-
-// 1. Initialize Firebase
-
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCKEijfTTb02sNmfkPVZYvb-payQXI6dL0",
-    authDomain: "my-project-da3e1.firebaseapp.com",
-    databaseURL: "https://my-project-da3e1.firebaseio.com",
-    projectId: "my-project-da3e1",
-    storageBucket: "my-project-da3e1.appspot.com",
-    messagingSenderId: "1028699486148"
-  };
-  firebase.initializeApp(config);
-
-var firebase = firebase.database();
-
-// 2. Create button for adding new employees - then update the html + update the database
-
-$("#submit").on("click", function() {
-    
-var newTrain = $("#trainName").val().trim();
-var newDestination = $("#destination").val().trim();
-var newFirstTrainTime = $("#firstTime").val().trim();
-var newFrequency = $("#frequency").val().trim();
-
-$("#trainName").text(snapshot.val().name);
-$("#destination").text(snapshot.val().email);
-$("#trainNa").text(snapshot.val().age);
-$("#comment-display").text(snapshot.val().comment);
-
-
-    var newEmp = {
-    name: empName,
-    role: empRole,
-    start: empStart,
-    rate: empRate
-  };
-
-  // Uploads employee data to the database
-  database.ref().push(newEmp);
-}
-// 3. Create a way to retrieve trains from the database.
-
-
-// 4. Create a way to calculate the months worked. Using difference between start and current time.
-
-
-
-//    Then use moment.js formatting to set difference in months.
-
-
-
-// 5. Calculate Minutes Away
-
-</script>
 </html>
