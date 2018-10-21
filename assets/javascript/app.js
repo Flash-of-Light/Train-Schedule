@@ -26,14 +26,14 @@ var newFirstTrainTime = $("#firstTime").val().trim();
 var newFrequency = $("#frequency").val().trim();
 
 var newTrains = {
-    train: newTrain,
-    desination: newDestination,
+    trainName: newTrain,
+    destination: newDestination,
     firstTime: newFirstTrainTime,
-    rate: newFrequency
+    frequency: newFrequency
   };
 
 //is my new object working?
-console.log(newTrains.train);
+// console.log(newTrains.train);
 
 //the inputs will stay in the fields without being cleared if these lines are not included
 $("#trainName").val("");
@@ -46,24 +46,30 @@ database.ref().push(newTrains);
 
 // 3. Create a way to retrieve trains from the database.
 database.ref().on("child_added", function(childSnapshot) {
+console.log(childSnapshot.val());
 
-$("#trainName").text(snapshot.val().name);
-$("#destination").text(snapshot.val().email);
-$("#trainNa").text(snapshot.val().age);
-$("#comment-display").text(snapshot.val().comment);
-});
+var newTrain = childSnapshot.val().trainName;
+var newDestination = childSnapshot.val().destination;
+var newFirstTrainTime = childSnapshot.val().firstTime;
+var newFrequency = childSnapshot.val().frequency;
 
-// 4. Create a way to calculate the months worked. Using difference between start and current time.
+console.log("newtrain" + newTrain);
+console.log(newDestination);
+console.log(newFirstTrainTime);
+console.log("new frequency" + newFrequency);
 
-
-
-//    Then use moment.js formatting to set difference in months.
-
-
+// 4. Use moment to calculate train minutes away
+var minutesAway = moment().diff(moment(newFirstTrainTime, "X"), "minutes");
 
 //adding the info to new rows
 var newRow = $("<tr>").append(
     $("<td>").text(newTrain),
-    $("<td>").text(newDesination),
+    $("<td>").text(newDestination),
     $("<td>").text(newFirstTrainTime),
-    $("<td>").text(newFrequency),);
+    $("<td>").text(newFrequency),
+    $("<td>").text(minutesAway),
+    );
+
+  // Append the new row to the table
+  $("#train-table > tbody").append(newRow);
+});
