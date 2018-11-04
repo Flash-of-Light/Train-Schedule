@@ -64,14 +64,17 @@ var newFrequency = childSnapshot.val().freq;
 // console.log("new frequency" + newFrequency);
 
 // 4. Use moment to calculate train minutes away
+// moment().endOf('day').fromNow();
+// minutesAway = moment().diff(moment.unix(snapshot.val().time), "minutes");
+
 var minutesAway = moment().diff(moment(newFirstTrainTime, "X"), "minutes");
 
 //adding the info to new rows
 var newRow = $("<tr>").append(
     $("<td>").text(newTrain),
     $("<td>").text(newDestination),
-    $("<td>").text(newFirstTrainTime),
     $("<td>").text(newFrequency),
+    $("<td>").text(newFirstTrainTime),
     $("<td>").text(minutesAway),
     );
 
