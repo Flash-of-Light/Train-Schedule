@@ -1,5 +1,3 @@
-// Steps to complete:
-
 // 1. Initialize Firebase
 //my firebase configuration data
 var config = {
@@ -57,7 +55,7 @@ event.preventDefault();
 
 // 3. Create a way to retrieve trains from the database.
 database.ref().on("child_added", function(childSnapshot) {
-console.log(childSnapshot.val());
+// console.log(childSnapshot.val());
 
 newTrain = childSnapshot.val().train;
 newDestination = childSnapshot.val().dest;
@@ -70,10 +68,12 @@ newFrequency = childSnapshot.val().freq;
 // console.log("new frequency" + newFrequency);
 
 // 4. Use moment to calculate train minutes away
-// moment().endOf('day').fromNow();
-// minutesAway = moment().diff(moment.unix(snapshot.val().time), "minutes");
-
-var minutesAway = moment().diff(moment(newFirstTrainTime, "X"), "minutes");
+var frequency = childSnapshot.val().frequency;
+var trainDiff = moment().diff(moment.unix(childSnapshot.val().time), "minutes");
+var trainRemainder = trainDiff % frequency;                                  
+var minutesAway = frequency - trainRemainder;                 
+newFirstTrainTime = moment().add(minutesAway, "m").format("hh:mm A");
+// var minutesAway = moment().diff(moment(newFirstTrainTime, "X"), "minutes");
 
 //adding the info to new rows
 var newRow = $("<tr>").append(
